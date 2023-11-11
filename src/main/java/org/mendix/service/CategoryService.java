@@ -6,7 +6,6 @@ import org.mendix.repository.CategoryRepository;
 import org.mendix.repository.model.CategoryEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -24,13 +23,5 @@ public class CategoryService {
             return mapToCategoryDto(allCategoriesFromDb);
         }
         return Collections.emptyList();
-    }
-
-    private Category mapToDto(CategoryEntity categoryEntity) {
-        Category category = new Category();
-        category.setCategoryId(categoryEntity.getCategoryId());
-        category.setCategoryName(categoryEntity.getCategoryName());
-
-        return category;
     }
 }
