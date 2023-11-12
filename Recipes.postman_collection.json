@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "f40b1784-de7c-490a-afee-6e2ff42ebfdb",
+		"name": "Recipes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12566293"
+	},
+	"item": [
+		{
+			"name": "Create recipe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "ValeriiaChub",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<recipeml version=\"0.5\">\n    <recipe>\n        <head>\n            <title>Amaretto Cake</title>\n            <categories>\n                <cat>Liquor</cat>\n                <cat>Cakes</cat>\n                <cat>Cake mixes</cat>\n            </categories>\n            <yield>1</yield>\n        </head>\n        <ingredients>\n            <ing>\n                <amt>\n                    <qty>1 1/2</qty>\n                    <unit>cups</unit>\n                </amt>\n                <item>Toasted Almonds; chopped</item>\n            </ing>\n            <ing>\n                <amt>\n                    <qty>1</qty>\n                    <unit>package</unit>\n                </amt>\n                <item>Yellow cake mix; no pudding</item>\n            </ing>\n            <ing>\n                <amt>\n                    <qty>1</qty>\n                    <unit>package</unit>\n                </amt>\n                <item>Vanilla instant pudding</item>\n            </ing>\n            <ing>\n                <amt>\n                    <qty>4</qty>\n                    <unit/>\n                </amt>\n                <item>Eggs</item>\n            </ing>\n            <ing>\n                <amt>\n                    <qty>1/2</qty>\n                    <unit>cups</unit>\n                </amt>\n                <item>Vegetable oil</item>\n            </ing>\n            <ing>\n                <amt>\n                    <qty>1/2</qty>\n                    <unit>cups</unit>\n                </amt>\n                <item>Water</item>\n            </ing>\n            <ing>\n                <amt>\n                    <qty>1/2</qty>\n                    <unit>cups</unit>\n                </amt>\n                <item>Amaretto</item>\n            </ing>\n            <ing>\n                <amt>\n                    <qty>1</qty>\n                    <unit>teaspoon</unit>\n                </amt>\n                <item>Almond extract</item>\n            </ing>\n            <ing>\n                <amt>\n                    <qty>1/2</qty>\n                    <unit>cups</unit>\n                </amt>\n                <item>Sugar</item>\n            </ing>\n            <ing>\n                <amt>\n                    <qty>1/4</qty>\n                    <unit>cups</unit>\n                </amt>\n                <item>Water</item>\n            </ing>\n            <ing>\n                <amt>\n                    <qty>2</qty>\n                    <unit>tablespoons</unit>\n                </amt>\n                <item>Butter</item>\n            </ing>\n            <ing>\n                <amt>\n                    <qty>1/4</qty>\n                    <unit>cups</unit>\n                </amt>\n                <item>Amaretto</item>\n            </ing>\n            <ing>\n                <amt>\n                    <qty>1/2</qty>\n                    <unit>teaspoons</unit>\n                </amt>\n                <item>Almond extract</item>\n            </ing>\n        </ingredients>\n        <directions>\n            <step>Sprinkle 1 cup almonds into bottom of a well-greased and floured 10\"\n                tube pan; set aside. Combine cake mix, pudding mix, eggs, oil, water,\n                amaretto, and almond extract in a mixing bowl; beat on low speed of\n                an\n                electric mixer til dry ingredients are moistened. Increase\n                speed to medium, and beat 4 minutes. Stir in remaining 1/2 cup\n                almonds. Pour batter into prepared tube pan. Bake at 325~ for 1 hour\n                or til a wooden pick inserted in center comes out clean. Cool cake in pan\n                10-15 minutes; remove from pan, and cool completely. Combine sugar,\n                water, and butter in a small saucepan; bring to a boil. Reduce heat to\n                medium and gently boil 4-5 minutes, stirring occasionally, until sugar\n                dissolves. Remove from heat, and cool 15 minutes. Stir\n                in amaretto and almond extract. Punch holes in top of cake with a\n                wooden pick; slowly spoon glaze on top of cake, allowing glaze to absorb in\n                cake.\n                Posted to MC-Recipe Digest V1 #263\n\n                Date: Sun, 27 Oct 1996 20:04:57 +0000\n\n                From: Cheryl Gimenez &lt;clgimenez@earthlink.net&gt;\n\n            </step>\n        </directions>\n    </recipe>\n</recipeml>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get recipe by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"head\": {\n        \"title\": \"Another Zucchini Dish\",\n        \"categories\": [\n            \"Microwave\",\n            \"Vegetables\"\n        ],\n        \"yield\": 6\n    },\n    \"ingredients\": [\n        {\n            \"amt\": {\n                \"qty\": 1,\n                \"unit\": \"pound\"\n            },\n            \"item\": \"Zucchini; cubed 1/2 \\\"\"\n        },\n        {\n            \"amt\": {\n                \"qty\": 3,\n                \"unit\": \"tablespoons\"\n            },\n            \"item\": \"Butter or margarine\"\n        },\n        {\n            \"amt\": {\n                \"qty\": 3,\n                \"unit\": \"\"\n            },\n            \"item\": \"Eggs; beaten\"\n        },\n        {\n            \"amt\": {\n                \"qty\": 1,\n                \"unit\": \"\"\n            },\n            \"item\": \"Jar pimentos; 2 1/2 oz, diced\"\n        },\n        {\n            \"amt\": {\n                \"qty\": 1,\n                \"unit\": \"cup\"\n            },\n            \"item\": \"Cheddar cheese; shredded\"\n        },\n        {\n            \"amt\": {\n                \"qty\": 1,\n                \"unit\": \"can\"\n            },\n            \"item\": \"French fried onion rings 3 oz.\"\n        }\n    ],\n    \"directions\": {\n        \"step\": \"Place zucchini and butter in a 2 quart casserole. Cover with plastic wrap.\\n                Microwave at high (100%) until tender crisp, 4 to 5 minutes. Stir in egg,\\n                pimentos and cheese. Blend well. Cover with plastic wrap. Microwave at\\n                medium (50%) until eggs are set, 10 toll minutes. Sprinkle onion rings on\\n                top. Microwave at medium (50%) until onion rings are heated, 2 to 2 1/2\\n                minutes. Makes 6 servings.\\n\\n                Recipe by: diane@keyway.net\\n\\n                Posted to recipelu-digest Volume 01 Number 217 by \\\"Diane Geary\\\"\\n                &lt;diane@keyway.net&gt; on Nov 7, 1997\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/recipes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"recipes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "ValeriiaChub",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all by category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "ValeriiaChub",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/recipes?category=Vegetables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"recipes"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Vegetables"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "ValeriiaChub",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
