@@ -8,17 +8,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mendix.api.security.AuthenticationFilter;
-import org.mendix.api.security.SecurityConfig;
 import org.mendix.dto.RecipeMlRequest;
 import org.mendix.dto.response.RecipeListWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpHeaders;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -36,14 +32,12 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @Slf4j
 @Tag("intg")
-@Rollback
 @AutoConfigureMockMvc
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -66,7 +60,6 @@ public class RecipeApiTest {
         HttpHeaders httpHeaders = prepareApiKeyHeader();
 
         MvcResult mvcResult = mockMvc.perform(post("/recipes")
-                                             .with(csrf())
                                              .contentType("application/xml")
                                              .content(serializeToXml(request))
                                              .headers(httpHeaders))
@@ -81,14 +74,12 @@ public class RecipeApiTest {
         HttpHeaders httpHeaders = prepareApiKeyHeader();
 
         mockMvc.perform(post("/recipes")
-                       .with(csrf())
                        .contentType("application/xml")
                        .content(serializeToXml(request))
                        .headers(httpHeaders))
                .andExpect(status().isOk()).andReturn();
 
         MvcResult mvcResult = mockMvc.perform(get("/recipes/1")
-                                             .with(csrf())
                                              .contentType("application/xml")
                                              .headers(httpHeaders))
                                      .andExpect(status().isOk()).andReturn();
@@ -101,14 +92,12 @@ public class RecipeApiTest {
         RecipeMlRequest request = requests.get(0);
         HttpHeaders httpHeaders = prepareApiKeyHeader();
         mockMvc.perform(post("/recipes")
-                       .with(csrf())
                        .contentType("application/xml")
                        .content(serializeToXml(request))
                        .headers(httpHeaders))
                .andExpect(status().isOk()).andReturn();
 
         MvcResult mvcResult = mockMvc.perform(get("/recipes")
-                                             .with(csrf())
                                              .contentType("application/xml")
                                              .headers(httpHeaders))
                                      .andExpect(status().isOk()).andReturn();
@@ -124,7 +113,6 @@ public class RecipeApiTest {
         RecipeMlRequest request = requests.get(0);
         HttpHeaders httpHeaders = prepareApiKeyHeader();
         mockMvc.perform(post("/recipes")
-                       .with(csrf())
                        .contentType("application/xml")
                        .content(serializeToXml(request))
                        .headers(httpHeaders))
@@ -132,7 +120,6 @@ public class RecipeApiTest {
 
         String category = "Chili";
         MvcResult mvcResult = mockMvc.perform(get("/recipes?category=" + category)
-                                             .with(csrf())
                                              .contentType("application/xml")
                                              .headers(httpHeaders))
                                      .andExpect(status().isOk()).andReturn();
@@ -148,7 +135,6 @@ public class RecipeApiTest {
         RecipeMlRequest request = requests.get(0);
         HttpHeaders httpHeaders = prepareApiKeyHeader();
         mockMvc.perform(post("/recipes")
-                       .with(csrf())
                        .contentType("application/xml")
                        .content(serializeToXml(request))
                        .headers(httpHeaders))
@@ -156,7 +142,6 @@ public class RecipeApiTest {
 
         String category = "Chocolate";
         MvcResult mvcResult = mockMvc.perform(get("/recipes?category=" + category)
-                                             .with(csrf())
                                              .contentType("application/xml")
                                              .headers(httpHeaders))
                                      .andExpect(status().isOk()).andReturn();

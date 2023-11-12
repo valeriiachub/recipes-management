@@ -32,3 +32,4 @@ To get the application running locally on your machine, follow the steps below:
 
 The application should now be running at http://localhost:8081.
 During the startup, the application will automatically load a predefined set of recipes into the H2 database, ensuring that you have sample data to work with immediately after the launch.
+For a convenient way to test and interact with the application's API, a Postman collection ([Recipes.postman_collection.json](Recipes.postman_collection.json))has been provided. You can import this collection into Postman to quickly start sending requests and evaluating responses from the application's endpoints.

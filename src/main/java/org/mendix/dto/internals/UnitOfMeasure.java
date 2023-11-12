@@ -13,7 +13,7 @@ public enum UnitOfMeasure {
 
     POUND(List.of("pound")),
     TABLESPOONS(List.of("tablespoons", "tablespoon")),
-    TEASPOON(List.of("teaspoon")),
+    TEASPOON(List.of("teaspoon", "teaspoons")),
     CAN(List.of("can")),
     CUP(List.of("cup", "cups")),
     PACKAGE(List.of("package")),

@@ -16,6 +16,8 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.csrf()
+            .ignoringAntMatchers("/recipes/**");
         http.addFilterBefore(authenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
